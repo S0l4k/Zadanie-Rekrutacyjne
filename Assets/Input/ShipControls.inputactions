@@ -1,6 +1,6 @@
 {
     "version": 1,
-    "name": "ShipContols",
+    "name": "ShipControls",
     "maps": [
         {
             "name": "Gameplay",
@@ -29,48 +29,70 @@
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "967eef46-5c10-42f6-baf9-ffa5e843b360",
-                    "path": "<Keyboard>/w",
+                    "name": "1D Axis",
+                    "id": "ccbd04d5-2436-4987-a12b-64492cdca199",
+                    "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "SailOpen",
-                    "isComposite": false,
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "23563426-8d8b-4c47-8eb0-47e1a4bcf46c",
+                    "name": "negative",
+                    "id": "79851ce7-06d8-4d6a-8757-0b473db4c54a",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "SailOpen",
                     "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "667de25d-44e5-4227-a53e-4ab0ef875069",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SailOpen",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "c84a6f6a-998f-4cf0-be06-3ebc671099b0",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SailRotate",
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "883fcb0a-d69d-4d29-9275-e229c6978542",
+                    "name": "negative",
+                    "id": "8c1044df-42d4-47c2-a41e-36f151dfe123",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "SailRotate",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "470bdf24-3560-49d8-9902-7f9855134d1a",
+                    "name": "positive",
+                    "id": "085279a9-66a3-4a3f-801d-018970d23b84",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "SailRotate",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 }
             ]
         }

@@ -1,38 +1,39 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class ShipController : MonoBehaviour
 {
-    [SerializeField] private Label _opennessLabel;
-    [SerializeField] private Label _rotationLabel;
     [SerializeField] private UIDocument _uiDocument;
-
-    [SerializeField, Range(0f, 100f)] private float _sailOpenness = 0f;
-    [SerializeField, Range(-45f, 45f)] private float _sailRotation = 0f;
-
     [SerializeField] private Transform _sailTransform;
+
+    [SerializeField, Range(0f, 100f)] private float _sailOpenness;
+    [SerializeField, Range(-45f, 45f)] private float _sailRotation;
 
     [SerializeField] private float _opennessSpeed = 20f;
     [SerializeField] private float _rotationSpeed = 45f;
 
-    private float _opennessInput;
-    private float _rotationInput;
+    private Label _opennessLabel;
+    private Label _rotationLabel;
+    private ShipControls _inputActions;
 
     private void Awake()
     {
         InitializeUI();
+        _inputActions = new ShipControls();
     }
 
+    private void OnEnable() => _inputActions.Gameplay.Enable();
+    private void OnDisable() => _inputActions.Gameplay.Disable();
 
-    public void OnSailOpen(InputAction.CallbackContext context)
+    private void Update()
     {
-        _opennessInput = context.ReadValue<float>();
-    }
+        float opennessInput = _inputActions.Gameplay.SailOpen.ReadValue<float>();
+        float rotationInput = _inputActions.Gameplay.SailRotate.ReadValue<float>();
 
-    public void OnSailRotate(InputAction.CallbackContext context)
-    {
-        _rotationInput = context.ReadValue<float>();
+        UpdateSailValues(opennessInput, rotationInput);
+        UpdateUserInterface();
+        RotateSail();
     }
 
     private void InitializeUI()
@@ -42,34 +43,24 @@ public class ShipController : MonoBehaviour
         _rotationLabel = root.Q<Label>("RotationLabel");
     }
 
-    // Update is called once per frame
-    void Update()
+    private void UpdateSailValues(float opennessInput, float rotationInput)
     {
-        UpdateSailValues();
-        UpdateUserInterface();
-        RotateSail();
+        _sailOpenness = Mathf.Clamp(_sailOpenness + opennessInput * _opennessSpeed * Time.deltaTime, 0f, 100f);
+        _sailRotation = Mathf.Clamp(_sailRotation + rotationInput * _rotationSpeed * Time.deltaTime, -45f, 45f);
     }
-
-    private void UpdateSailValues()
-    {
-        _sailOpenness += _opennessInput * _opennessSpeed * Time.deltaTime;
-
-        _sailOpenness = Mathf.Clamp(_sailOpenness, 0f, 100f);
-
-        _sailRotation += _rotationInput * _rotationSpeed * Time.deltaTime;
-
-        _sailRotation = Mathf.Clamp(_sailRotation, -45f, 45f);
-    }
-
 
     private void UpdateUserInterface()
     {
-        _opennessLabel.text = $"Sail Openness: {_sailOpenness:F0}%";
-        _rotationLabel.text = $"Sail Rotation: {_sailRotation:F0}°";
+        if (_opennessLabel != null)
+            _opennessLabel.text = $"Sail Openness: {_sailOpenness:F0}%";
+
+        if (_rotationLabel != null)
+            _rotationLabel.text = $"Sail Rotation: {_sailRotation:F0}°";
     }
 
     private void RotateSail()
-    {   
+    {
+        if (_sailTransform != null)
             _sailTransform.localRotation = Quaternion.Euler(0f, _sailRotation, 0f);
     }
 }
