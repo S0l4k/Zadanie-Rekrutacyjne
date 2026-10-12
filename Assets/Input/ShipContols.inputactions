@@ -1,0 +1,79 @@
+{
+    "version": 1,
+    "name": "ShipContols",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "cc5c84c3-008c-448c-b6cb-ec3e47d1eb16",
+            "actions": [
+                {
+                    "name": "SailOpen",
+                    "type": "Value",
+                    "id": "cc8341a7-9c43-461f-9c94-3a5b726cf572",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
+                },
+                {
+                    "name": "SailRotate",
+                    "type": "Value",
+                    "id": "bcbf2649-c242-4e7e-a2c4-396e48d0b65f",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "967eef46-5c10-42f6-baf9-ffa5e843b360",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SailOpen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "23563426-8d8b-4c47-8eb0-47e1a4bcf46c",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SailOpen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "883fcb0a-d69d-4d29-9275-e229c6978542",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SailRotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "470bdf24-3560-49d8-9902-7f9855134d1a",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SailRotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
