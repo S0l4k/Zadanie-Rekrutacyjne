@@ -205,13 +205,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.18530531, y: -0, z: -0, w: 0.98268104}
+  m_LocalPosition: {x: 0, y: 6.028, z: -8.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 797236454}
+  m_LocalEulerAnglesHint: {x: 21.358, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,7 +346,6 @@ GameObject:
   m_Component:
   - component: {fileID: 410087041}
   - component: {fileID: 410087040}
-  - component: {fileID: 410087042}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -434,18 +433,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!114 &410087042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 410087039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &772058329
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,6 +556,7 @@ GameObject:
   m_Component:
   - component: {fileID: 797236454}
   - component: {fileID: 797236455}
+  - component: {fileID: 797236456}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -592,6 +580,7 @@ Transform:
   - {fileID: 389590768}
   - {fileID: 803590165}
   - {fileID: 1251594687}
+  - {fileID: 330585546}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &797236455
@@ -607,11 +596,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShipController
   _uiDocument: {fileID: 1476300717}
+  _sailTransform: {fileID: 1251594687}
   _sailOpenness: 0
   _sailRotation: 0
-  _sailTransform: {fileID: 1251594687}
-  _opennessSpeed: 20
-  _rotationSpeed: 45
+  _maxSpeed: 15
+  _acceleration: 10
+  _activeDrag: 0.98
+  _coastingDrag: 0.999
+  _hullTurnSpeed: 2
+--- !u!65 &797236456
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797236453}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.091522, y: 3.5009265, z: 3.9784083}
+  m_Center: {x: 0.060451984, y: 1.2504632, z: 0.05756116}
 --- !u!1 &803590164
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,7 +952,6 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 772058333}
