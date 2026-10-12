@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 43
+    y: 0
     width: 1920
     height: 36
   m_SerializedDataModeController:
@@ -597,8 +597,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Project\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1238
-    y: 79
+    x: 1239
+    y: 24
     width: 309
     height: 915
   m_SerializedDataModeController:
@@ -650,7 +650,6 @@ MonoBehaviour:
     m_LastClickedID:
       m_rawData: 568105584918814432
     m_ExpandedIDs:
-    - m_rawData: 568105589213755748
     - m_rawData: 0
     - m_rawData: 568105584918814322
     - m_rawData: 568105584918814324
@@ -843,7 +842,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 79
+    y: 24
     width: 1062
     height: 467
   m_SerializedDataModeController:
@@ -1525,7 +1524,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.19024755, y: 0.46303114, z: -0.10247673, w: -0.8596001}
     speed: 2
-    m_Value: {x: -0.190247, y: 0.46302983, z: -0.10247644, w: -0.8595977}
+    m_Value: {x: -0.19024755, y: 0.46303114, z: -0.10247673, w: -0.8596001}
   m_Size:
     m_Target: 27.885159
     speed: 2
@@ -1648,7 +1647,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_LastSelectedObjectID:
-    m_rawData: 568105584918814210
+    m_rawData: 0
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1671,7 +1670,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 572
+    y: 517
     width: 1062
     height: 422
   m_SerializedDataModeController:
@@ -1775,8 +1774,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Hierarchy\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1063
-    y: 79
+    x: 1064
+    y: 24
     width: 173
     height: 915
   m_SerializedDataModeController:
@@ -1797,10 +1796,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs:
-      - m_rawData: 568105584918814210
+      m_SelectedIDs: []
       m_LastClickedID:
-        m_rawData: 568105584918814210
+        m_rawData: 0
       m_ExpandedIDs:
       - m_rawData: 568105589213756006
       m_RenameOverlay:
@@ -1850,8 +1848,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1549
-    y: 79
+    x: 1550
+    y: 24
     width: 370
     height: 915
   m_SerializedDataModeController:
