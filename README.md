@@ -9,6 +9,9 @@ Simple ship sailing simulation created as a recruitment task. The project demons
 - **D** - Rotate sail right
 - **A** - Rotate sail left
 
+## Demo
+
+![Ship Sailing Demo](screenshot.png)
 
 ## How to Run
 
