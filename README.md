@@ -11,7 +11,7 @@ Simple ship sailing simulation created as a recruitment task. The project demons
 
 ## Demo
 
-![Ship Sailing Demo](screenshot.png)
+![Ship Sailing Demo](Screenshot.png)
 
 ## How to Run
 
