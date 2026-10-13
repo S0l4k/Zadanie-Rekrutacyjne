@@ -10,10 +10,10 @@ public class ShipController : MonoBehaviour
     [SerializeField, Range(0f, 100f)] private float _sailOpenness;
     [SerializeField, Range(-45f, 45f)] private float _sailRotation;
 
-    [SerializeField] private float _maxSpeed = 15f;
-    [SerializeField] private float _acceleration = 10f;
-    [SerializeField, Range(0.90f, 0.999f)] private float _activeDrag = 0.98f;
-    [SerializeField, Range(0.95f, 0.9999f)] private float _coastingDrag = 0.999f;
+    [SerializeField] private float _maxSpeed = 25f;
+    [SerializeField] private float _acceleration = 15f;
+    [SerializeField] private float _activeDrag = 1.5f;
+    [SerializeField] private float _coastingDrag = 0.3f;
     [SerializeField] private float _hullTurnSpeed = 2f;
 
     private Vector3 _velocity;
@@ -25,9 +25,11 @@ public class ShipController : MonoBehaviour
 
     private void Awake()
     {
-        InitializeUI();
-        _inputActions = new ShipControls();
+        var root = _uiDocument.rootVisualElement;
+        _opennessLabel = root.Q<Label>("OpennessLabel");
+        _rotationLabel = root.Q<Label>("RotationLabel");
 
+        _inputActions = new ShipControls();
         _originalSailScale = _sailTransform.localScale;
     }
 
@@ -53,8 +55,6 @@ public class ShipController : MonoBehaviour
 
     private void UpdateSailState()
     {
-        if (_sailTransform == null) return;
-
         _sailTransform.localRotation = Quaternion.Euler(0f, _sailRotation, 0f);
 
         float opennessRatio = _sailOpenness / 100f;
@@ -67,15 +67,13 @@ public class ShipController : MonoBehaviour
 
     private void UpdateMovement()
     {
-        if (_sailTransform == null) return;
-
         Vector3 windDirection = _sailTransform.forward;
         float windForce = (_sailOpenness / 100f) * _acceleration;
 
         _velocity += windDirection * windForce * Time.deltaTime;
 
         float currentDrag = _sailOpenness > 5f ? _activeDrag : _coastingDrag;
-        _velocity *= currentDrag;
+        _velocity *= Mathf.Exp(-currentDrag * Time.deltaTime);
 
         if (_velocity.magnitude > _maxSpeed)
             _velocity = _velocity.normalized * _maxSpeed;
@@ -89,17 +87,9 @@ public class ShipController : MonoBehaviour
         }
     }
 
-    private void InitializeUI()
-    {
-        var root = _uiDocument.rootVisualElement;
-        _opennessLabel = root.Q<Label>("OpennessLabel");
-        _rotationLabel = root.Q<Label>("RotationLabel");
-    }
-
     private void UpdateUserInterface()
     {
         _opennessLabel.text = $"Sail Openness: {_sailOpenness:F0}%";
-
         _rotationLabel.text = $"Sail Rotation: {_sailRotation:F0}°";
     }
 }
